@@ -1,0 +1,16 @@
+/* NAVIGATION STUFF GOES HERE  */
+
+.cards {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.allcards {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+header {
+    max-width: 720px;
+    margin: auto;
+    display: flex;
+
+}

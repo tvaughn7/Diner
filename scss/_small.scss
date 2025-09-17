@@ -1,0 +1,335 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/*  Apply a natural box layout model to all elements  */
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+} // end all elements
+
+
+/* --------------------------- BODY --------------------------- */
+body {
+    font-family: $defaultFont;
+    font-weight: $lightWeight;
+    min-width: 320px;
+    padding: .5rem;
+    background-color: $whiteColor;
+}
+
+
+/* --------------------------- HEADER --------------------------- */
+#headerWrapper {border-bottom: 1px solid $greyColor;}
+header {
+    display: flex;
+    grid-template-columns: 50px auto;
+    column-gap: $gutter;
+    align-items: center; //vertically
+    padding: .5rem $gutter;
+    span {
+        font-size: 1.6rem;
+        font-weight: $lightWeight;
+        color: $primaryColor;
+    }
+} // end header
+
+
+/* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
+
+#myButton {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $primaryColor;
+    width: 44px;
+    height: 44px;
+}
+
+#myButton::before {
+    content: "\2630"; /* Unicode character for "hamburger" icon */
+}
+
+ul.menuLinks {
+    list-style: none;
+    padding: .2rem;
+    margin: 0;
+    display: none; /* Hide menu by default */
+    background-color: $whiteColor;
+    font-weight: $normalWeight;
+   
+
+    li a {
+        text-decoration: none;
+        color: $primaryColor;
+        display: block;
+        padding: .5rem 0;
+    }
+
+    li a:hover, li.active a {
+        color: $secondaryColor;
+        font-weight: $boldWeight;
+        background-color: $greyColor;
+    }
+}
+
+ul.menuLinks.showMenu {
+    display: block;
+}
+
+#myButton.open::before {
+    content: "\2715"; /* Unicode character for "X" icon */
+}
+
+/* --------------------------- MAIN --------------------------- */
+main {
+    h1 {
+        padding: 1rem $gutter .5rem $gutter;
+        font-size: 1.5rem;
+        color: $secondaryColor;
+        font-weight: $normalWeight;
+    }
+    p {
+        padding: .5rem $gutter;
+        color: #333;
+        line-height: $leading;
+        font-weight: $normalWeight;
+    }
+} // end main
+
+
+/* --------------------------- CARDS --------------------------- */
+.allcards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $gutter;
+    padding: $gutter;
+}
+
+.allcards section {
+    background-color: $accentColor;
+    border: 1px solid $greyColor;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    color: $primaryColor;
+    display: flex;
+    flex-direction: column;
+    transition: transform .1s ease, box-shadow .2s ease;
+}
+
+.allcards section:hover,
+.allcards section:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.12);
+}
+
+.allcards section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: .2rem;
+    border-radius: .5rem;
+}
+
+.allcards section h2 {
+    margin: 0;
+    padding: $gutter $gutter 0 $gutter;
+    font-size: 1.1rem;
+    color: $whiteColor;
+    font-family: cursive;
+}
+
+.allcards section p {
+    margin: 0 0 $gutter 0;
+    padding: .5rem $gutter 0 $gutter;
+    color: #333;
+    line-height: $leading;
+}
+
+.allcards section a {
+    align-self: flex-start;
+    margin: 0 $gutter $gutter $gutter;
+    background-color: $secondaryColor;
+    color: $whiteColor;
+    border: 1px solid transparent;
+    padding: .5rem .75rem;
+    border-radius: .375rem;
+    text-decoration: none;
+    font-weight: $normalWeight;
+    transition: background-color .2s ease, box-shadow .2s ease, transform .05s ease;
+}
+
+.allcards section a:hover,
+.allcards section a:focus {
+    background-color: darken($secondaryColor, 7%);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $gutter;
+    padding: $gutter;
+    list-style: none;
+    margin: 0;
+}
+
+.card {
+    background-color: $whiteColor;
+    border: 1px solid $greyColor;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    color: $primaryColor;
+    display: flex;
+    flex-direction: column;
+    transition: transform .1s ease, box-shadow .2s ease;
+}
+
+.card:hover,
+.card:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.12);
+}
+
+.card__media {
+    aspect-ratio: 16 / 9;
+    background-color: $greyColor;
+}
+
+.card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card__body {
+    padding: $gutter;
+}
+
+.card__title {
+    margin: 0 0 .25rem 0;
+    font-size: 1.1rem;
+    color: $primaryColor;
+}
+
+.card__subtitle {
+    margin: 0 0 .5rem 0;
+    color: $secondaryColor;
+    font-weight: $normalWeight;
+}
+
+.card__text {
+    margin: 0;
+    color: #333;
+    line-height: $leading;
+}
+
+.card__actions {
+    margin-top: auto;
+    padding: 0 $gutter $gutter $gutter;
+}
+
+.btn {
+    display: inline-block;
+    background-color: $secondaryColor;
+    color: $whiteColor;
+    border: 1px solid transparent;
+    padding: .5rem .75rem;
+    border-radius: .375rem;
+    text-decoration: none;
+    font-weight: $normalWeight;
+    transition: background-color .2s ease, box-shadow .2s ease, transform .05s ease;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: darken($secondaryColor, 7%);
+}
+
+.btn--outline {
+    background-color: transparent;
+    color: $secondaryColor;
+    border-color: $secondaryColor;
+}
+
+.btn--accent {
+    background-color: $accentColor;
+    border-color: $accentColor;
+}
+
+
+
+/* --------------------------- FOOTER --------------------------- */
+#footerWrapper {
+    background-color: $primaryColor;
+} // end footer wrapper
+
+footer {
+    font-size: .95rem;
+    padding: 2rem $gutter;
+    color: $greyColor;
+    text-align: center;
+    line-height: $leading;
+    a { color: $greyColor; }
+
+    // content grid wrapper (the first child div)
+    > div {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $gutter;
+        align-items: start;
+        margin-bottom: 1rem;
+    }
+
+    // contact block
+    .contact p { margin: 0 0 .25rem 0; }
+    .contact a { text-decoration: underline; }
+
+    // social media icons row
+    .socialMedia {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .75rem;
+    }
+    .socialMedia a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 9999px;
+        color: $whiteColor;
+        border: 1px solid rgba($whiteColor, .25);
+        background-color: transparent;
+        transition: background-color .2s ease, border-color .2s ease, transform .1s ease;
+    }
+    .socialMedia a:hover,
+    .socialMedia a:focus {
+        background-color: rgba($whiteColor, .12);
+        border-color: rgba($whiteColor, .5);
+        transform: translateY(-1px);
+    }
+    .socialMedia ion-icon {
+        font-size: 1.2rem;
+        line-height: 1;
+        display: block;
+    }
+
+    // location block
+    .location address { font-style: normal; margin: 0; }
+
+    // legal bar
+    .legal {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba($whiteColor, .15);
+        color: $greyColor;
+    }
+}// end footer
