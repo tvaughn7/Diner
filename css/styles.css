@@ -374,7 +374,10 @@ ul.menuLinks li a {
   display: block;
   padding: 0.5rem 0;
 }
-ul.menuLinks li a:hover, ul.menuLinks li.active a {
+ul.menuLinks li a:hover {
+  font-weight: 700;
+}
+ul.menuLinks li.active a {
   color: #5c9ead;
   font-weight: 700;
   background-color: #eeeeee;

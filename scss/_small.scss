@@ -71,7 +71,10 @@ ul.menuLinks {
         padding: .5rem 0;
     }
 
-    li a:hover, li.active a {
+    li a:hover {
+        font-weight: $boldWeight;
+    }
+    li.active a {
         color: $secondaryColor;
         font-weight: $boldWeight;
         background-color: $greyColor;
